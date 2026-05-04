@@ -11,14 +11,25 @@ public:
     std::string getModel() const { return model; }
     int getYear() const { return year; }
 
-    // orientation stuff
-    std::vector<std::string> getOrientations() const;
-    std::vector<float> getPositions();
+    // getters for orientation and image data
+    std::vector<std::string> getOrientations() const { return orientations; }
+    std::vector<float> getPositions() const { return positions; }
+    std::vector<SDL_Texture*> getTextures() const { return textures; }
+    std::vector<SDL_Rect> getTextureRects() const { return textureRects; }
+    std::vector<SDL_Rect> getCollisionRects() const { return collisionRects; }
 
-    // image stuff
-    std::vector<SDL_Texture*> getTextures() const;
-    std::vector<SDL_Rect> getTextureRects() const;
-    std::vector<SDL_Rect> getCollisionRects() const;
+    // setters for orientation and image data
+    void setOrientations(const std::vector<std::string>& newOrientations) { orientations = newOrientations; }
+    void setPositions(const std::vector<float>& newPositions) { positions = newPositions; }
+    void setTextures(const std::vector<SDL_Texture*>& newTextures) { textures = newTextures; }
+    void setTextureRects(const std::vector<SDL_Rect>& newTextureRects) { textureRects = newTextureRects; }
+    void setCollisionRects(const std::vector<SDL_Rect>& newCollisionRects) { collisionRects = newCollisionRects; }
+
+    // setters for make, model, and year
+    void setMake(const std::string& newMake) { make = newMake; }
+    void setModel(const std::string& newModel) { model = newModel; }
+    void setYear(int newYear) { year = newYear; }
+
 
 private:
     std::string make;
@@ -28,7 +39,7 @@ private:
     // orientation data
     std::vector<std::string> orientations;
     std::vector<float> positions;
-    
+
     // image data
     std::vector<SDL_Texture*> textures;
     std::vector<SDL_Rect> textureRects;
