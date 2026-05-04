@@ -2,16 +2,18 @@
 #include <string>
 #include <vector>
 #include "car.hpp"
+#include "track.hpp"
 
 class Train {
 public:
-    Train(const std::string& name, std::vector<std::string> stops, std::vector<car> cars)
-        : name(name), stops(stops), cars(cars) {}
+    Train(const std::string& name, std::vector<std::string> stops, std::vector<car> cars, TrackSet trackSet)
+        : name(name), stops(stops), cars(cars), trackSet(trackSet) {}
 
 
     // getters
     std::string getName() const { return name; }
     std::vector<std::string> getStops() const { return stops; }
+    const TrackSet& getTrackSet() const { return trackSet; }
     
     std::vector<std::string> getOrientations() const {
         std::vector<std::string> allOrientations;
@@ -63,6 +65,7 @@ public:
     void setName(const std::string& newName) { name = newName; }
     void setStops(const std::vector<std::string>& newStops) { stops = newStops; }
     void setCars(const std::vector<car>& newCars) { cars = newCars; }
+    void setTrackSet(const TrackSet& newTrackSet) { trackSet = newTrackSet; }
     void addCar(const car& newCar) { cars.push_back(newCar); }
     void rmCar(const std::string& make, const std::string& model) {
         cars.erase(std::remove_if(cars.begin(), cars.end(),
@@ -129,4 +132,5 @@ private:
     std::string name;
     std::vector<std::string> stops;
     std::vector<car> cars;
+    TrackSet trackSet;
 };

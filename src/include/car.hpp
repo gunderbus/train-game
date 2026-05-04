@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
+#include "track.hpp"
 
 class car {
 public:
@@ -30,6 +32,10 @@ public:
     void setModel(const std::string& newModel) { model = newModel; }
     void setYear(int newYear) { year = newYear; }
 
+    // getter and setter for current track
+    std::shared_ptr<Track> getCurrentTrack() const { return currentTrack; }
+    void setCurrentTrack(std::shared_ptr<Track> track) { currentTrack = track; }
+
 
 private:
     std::string make;
@@ -44,5 +50,8 @@ private:
     std::vector<SDL_Texture*> textures;
     std::vector<SDL_Rect> textureRects;
     std::vector<SDL_Rect> collisionRects;
+
+    // current track
+    std::shared_ptr<Track> currentTrack;
 
 };
