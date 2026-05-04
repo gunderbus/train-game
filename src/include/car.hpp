@@ -24,4 +24,14 @@ private:
     std::string make;
     std::string model;
     int year;
+
+    // orientation data
+    std::vector<std::string> orientations;
+    std::vector<float> positions;
+    
+    // image data
+    std::vector<SDL_Texture*> textures;
+    std::vector<SDL_Rect> textureRects;
+    std::vector<SDL_Rect> collisionRects;
+
 };
