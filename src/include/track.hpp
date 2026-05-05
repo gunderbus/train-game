@@ -3,7 +3,7 @@
 #include <memory>
 #include "stop.hpp"
 
-class Track {
+class Track : public std::enable_shared_from_this<Track> {
 public:
     Track(std::shared_ptr<Stop> start, std::shared_ptr<Stop> end)
         : start(start), end(end) {}
