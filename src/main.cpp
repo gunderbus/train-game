@@ -4,6 +4,8 @@
 #include <vector>
 #include <memory>
 
+class Track;  // Forward declaration
+
 class car {
 public:
     car(const std::string& make, const std::string& model, int year)
@@ -84,6 +86,7 @@ public:
     std::string getName() const { return name; }
     std::vector<std::string> getStops() const { return stops; }
     const TrackSet& getTrackSet() const { return trackSet; }
+    const std::vector<car>& getCars() const { return cars; }
     
     std::vector<std::string> getOrientations() const {
         std::vector<std::string> allOrientations;
